@@ -13,7 +13,9 @@ void MoveServo(int degrees, int steps) {
   preferences.begin("servo", false);
   ESP32PWM::allocateTimer(0);
   myservo.setPeriodHertz(50);
-  myservo.attach(2);
+  // myservo.attach(2); // For 444
+  // myservo.attach(27); // For DC21
+  myservo.attach(25); // For DC21
 
   pos = preferences.getInt("position", 0);
   if (pos < 0 || pos > 180) {
